@@ -1,0 +1,23 @@
+@import 'code-dark-theme.css';
+
+/* настройки для тёмной темы */
+:root {
+  color-scheme: dark;
+
+  --is-light-theme-on: 0;
+  --is-dark-theme-on: 1;
+
+  --color-base-text: var(--color-light);
+  --color-base-background: var(--color-dark);
+
+  --color-text: hsl(var(--color-light));
+  --color-background: hsl(var(--color-dark));
+  --color-fade: hsl(0 0% 20%);
+
+  --color-html: hsl(25 70% 24%);
+  --color-css: hsl(209 70% 24%);
+  --color-js: hsl(49 74% 23%);
+  --color-tools: hsl(122 56% 23%);
+  --color-recipes: hsla(276, 39%, 32%);
+  --color-svg: hsl(347 23% 31%);
+}

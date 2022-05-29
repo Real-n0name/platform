@@ -1,0 +1,24 @@
+node_modules
+dist
+
+.idea
+.vscode
+
+# симлинки на данные репозитория контента
+html
+css
+js
+tools
+recipes
+people
+about
+pages
+settings
+specials
+
+.eslintcache
+
+# кеш для @11ty/eleventy-cache-assets
+.cache
+
+.env

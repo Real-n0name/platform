@@ -1,0 +1,52 @@
+{% from "blocks/header.njk" import header with context %}
+{% from "blocks/footer.njk" import footer with context %}
+
+{% set isLogoContrastColor = hasCategory %}
+
+{{ header(
+  isStatic=true,
+  isLogoContrastColor=isLogoContrastColor
+) }}
+
+<main>
+  <div class="container">
+    <div class="intro">
+      <h1 class="visually-hidden">Дока</h1>
+      <p class="intro__description">Документация для разработчиков на человеческом языке</p>
+      <div class="intro__link">
+        🔥
+        <a class="link" href="{{ constants.contentHotBacklogLink }}">Стать контрибьютором</a>
+      </div>
+    </div>
+
+    {% include "articles-gallery.njk" %}
+
+    <section class="materials-collection">
+      <h2 class="visually-hidden">Подборки материалов</h2>
+
+      <ul class="article-indexes-list base-list">
+        {% for sectionIndex in collections.articleIndexes %}
+          {% set category = sectionIndex.fileSlug %}
+          <li class="article-indexes-list__item">
+            <h3 class="article-indexes-list__title" style="--accent-color: var(--color-base-{{ category }})">
+              <a class="article-indexes-list__link" href="/{{ category }}/">
+                {{ sectionIndex.data.name }}
+              </a>
+            </h3>
+            <ul class="index-group-list base-list">
+              {% for group in sectionIndex.data.groups %}
+                <li class="index-group-list__item">
+                  <a class="index-group-list__link link" href="/{{ category }}/#{{ group.name | slugify }}">
+                    {{ group.name | descriptionMarkdown | safe }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  </div>
+</main>
+
+{{ footer() }}
